@@ -18,10 +18,19 @@ public class NameToHeight {
 	 * contain a specified name.
 	 */
 	public static void main(String[] args) {
+		
+		Map<String, Integer> heights = new HashMap<>();
+		heights.put("Skye", 65);
+		heights.put("William", 70);
+		
 		Scanner in = new Scanner(System.in);
-
-		// FIXME
-		throw new NotYetImplementedException();
-
+		System.out.println("Who's height do you want to know? (uppercase first letter)");
+		String temp = in.next();
+		while(!(temp.equals("quit"))) {
+			if(heights.get(temp) == null) System.out.println("That person is not in the group!");
+			else System.out.println(temp + " is " + heights.get(temp) + " inches tall.");
+			System.out.println("Who's height do you want to know? (uppercase first letter, type quit to exit)");
+			temp = in.next();
+		}
 	}
 }
